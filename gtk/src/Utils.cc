@@ -262,7 +262,6 @@ std::string Utils::make_output_filename(const std::string& filename) {
 void Utils::list_dir(const std::string& path, const std::set<std::string>& filters, std::vector<Glib::RefPtr<Gio::File >>& output) {
 	try {
 		Glib::Dir dir(path);
-		std::vector<Glib::RefPtr<Gio::File >> files;
 		for (const std::string& filename : dir) {
 			std::string subpath = Glib::build_filename(path, filename);
 			if (Glib::file_test(subpath, Glib::FILE_TEST_IS_DIR)) {
