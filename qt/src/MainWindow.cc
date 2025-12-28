@@ -292,6 +292,9 @@ void MainWindow::pushState(MainWindow::State state, const QString& msg) {
 	m_stateStack.push(QPair<State, QString> (state, msg));
 	ui.statusbar->showMessage(msg);
 	setState(state);
+	if (state == State::Busy) {
+		QApplication::setOverrideCursor(Qt::WaitCursor);
+	}
 }
 
 void MainWindow::popState() {
@@ -315,11 +318,6 @@ void MainWindow::setState(State state) {
 	ui.dockWidgetSources->setEnabled(!isBusy);
 	ui.dockWidgetOutput->setEnabled(!isBusy);
 	ui.centralwidget->setEnabled(!isBusy);
-	if (isBusy) {
-		QApplication::setOverrideCursor(Qt::WaitCursor);
-	} else {
-		QApplication::restoreOverrideCursor();
-	}
 }
 
 void MainWindow::closeEvent(QCloseEvent* ev) {
