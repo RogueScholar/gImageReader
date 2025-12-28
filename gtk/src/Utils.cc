@@ -259,7 +259,7 @@ std::string Utils::make_output_filename(const std::string& filename) {
 	return newfilename;
 }
 
-void Utils::list_dir(const std::string& path, const std::set<std::string>& filters, std::vector<Glib::RefPtr<Gio::File >> & output) {
+void Utils::list_dir(const std::string& path, const std::set<std::string>& filters, std::vector<Glib::RefPtr<Gio::File >>& output) {
 	try {
 		Glib::Dir dir(path);
 		std::vector<Glib::RefPtr<Gio::File >> files;

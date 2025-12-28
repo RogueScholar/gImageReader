@@ -64,7 +64,7 @@ public:
 	SourceManager(const Ui::MainWindow& _ui);
 	~SourceManager();
 
-	int addSources(const std::vector<Glib::RefPtr<Gio::File >> & files, bool suppressWarnings = false);
+	int addSources(const std::vector<Glib::RefPtr<Gio::File >>& files, bool suppressWarnings = false);
 	bool addSource(Glib::RefPtr<Gio::File> file, bool suppressWarnings) {
 		return addSources({file}, suppressWarnings) == 1;
 	}

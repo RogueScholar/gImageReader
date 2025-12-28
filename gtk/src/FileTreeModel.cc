@@ -326,8 +326,7 @@ Gtk::TreeModelFlags FileTreeModel::get_flags_vfunc() const {
 GType FileTreeModel::get_column_type_vfunc(int index) const {
 	if (index == COLUMN_ICON) {
 		return Glib::Value<Glib::RefPtr<Gdk::Pixbuf >>::value_type();
-	}
-	else if (index == COLUMN_TEXT) {
+	} else if (index == COLUMN_TEXT) {
 		return Glib::Value<Glib::ustring>::value_type();
 	} else if (index == COLUMN_TOOLTIP) {
 		return Glib::Value<Glib::ustring>::value_type();

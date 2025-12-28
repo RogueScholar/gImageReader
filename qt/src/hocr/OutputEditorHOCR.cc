@@ -699,18 +699,15 @@ void OutputEditorHOCR::bboxDrawn(const QRect& bbox, int action) {
 		newElement = doc.createElement("div");
 		newElement.setAttribute("class", "ocr_graphic");
 		newElement.setAttribute("title", QString("bbox %1 %2 %3 %4").arg(bbox.left()).arg(bbox.top()).arg(bbox.right()).arg(bbox.bottom()));
-	}
-	else if (action == DisplayerToolHOCR::ACTION_DRAW_CAREA_RECT) {
+	} else if (action == DisplayerToolHOCR::ACTION_DRAW_CAREA_RECT) {
 		newElement = doc.createElement("div");
 		newElement.setAttribute("class", "ocr_carea");
 		newElement.setAttribute("title", QString("bbox %1 %2 %3 %4").arg(bbox.left()).arg(bbox.top()).arg(bbox.right()).arg(bbox.bottom()));
-	}
-	else if (action == DisplayerToolHOCR::ACTION_DRAW_PAR_RECT) {
+	} else if (action == DisplayerToolHOCR::ACTION_DRAW_PAR_RECT) {
 		newElement = doc.createElement("p");
 		newElement.setAttribute("class", "ocr_par");
 		newElement.setAttribute("title", QString("bbox %1 %2 %3 %4").arg(bbox.left()).arg(bbox.top()).arg(bbox.right()).arg(bbox.bottom()));
-	}
-	else if (action == DisplayerToolHOCR::ACTION_DRAW_LINE_RECT) {
+	} else if (action == DisplayerToolHOCR::ACTION_DRAW_LINE_RECT) {
 		newElement = doc.createElement("span");
 		newElement.setAttribute("class", "ocr_line");
 		QSet<QString> propLineBaseline = propAttrs["ocrx_line"]["baseline"];
@@ -749,9 +746,9 @@ void OutputEditorHOCR::bboxDrawn(const QRect& bbox, int action) {
 	} else {
 		return;
 	}
-	QModelIndex index = m_document->addItem(current, newElement);
-	if (index.isValid()) {
-		ui.treeViewHOCR->selectionModel()->setCurrentIndex(index, QItemSelectionModel::ClearAndSelect | QItemSelectionModel::Rows);
+	QModelIndex newIndex = m_document->addItem(index, newElement);
+	if (newIndex.isValid()) {
+		ui.treeViewHOCR->selectionModel()->setCurrentIndex(newIndex, QItemSelectionModel::ClearAndSelect | QItemSelectionModel::Rows);
 	}
 }
 
