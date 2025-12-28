@@ -99,6 +99,12 @@ private:
 	void selectionChanged();
 	void selectRecursive(const Gtk::TreeIter& iter, std::vector<Gtk::TreeIter>& selection) const;
 	void takeScreenshot();
+	void onScreenshotResponse(const Glib::RefPtr<Gio::DBus::Connection>&,
+	                          const Glib::ustring&,
+	                          const Glib::ustring&,
+	                          const Glib::ustring&,
+	                          const Glib::ustring&,
+	                          const Glib::VariantContainerBase& parameters);
 };
 
 #endif // SOURCEMANAGER_HH

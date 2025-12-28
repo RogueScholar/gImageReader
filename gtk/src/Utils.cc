@@ -619,3 +619,8 @@ Utils::TesseractHandle::~TesseractHandle() {
 	std::signal(SIGABRT, MainWindow::signalHandler);
 }
 
+bool Utils::isWaylandSession() {
+	const char* session = std::getenv("XDG_SESSION_TYPE");
+	return session && std::string(session) == "wayland";
+}
+

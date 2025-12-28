@@ -179,6 +179,8 @@ public:
 	}
 };
 
-}
+bool isWaylandSession();
+
+} // Utils
 
 #endif
